@@ -22,28 +22,18 @@
 {% block contenido %}
 
 
-<div class="slider">
-    <div>
-        <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
-    </div>
-</div>
+
 
 {% load humanize %}
 
 
-<h2>Productos</h2>
+<h2 class="text-center text-white mt-5 mb-5">Productos</h2>
 <div class="productos">
     {% for p in productos %}
-    <div class="producto">
-        <div class="contenedor_producto">
+    <div class="producto card m-2">
+        <div class="contenedor_producto card-body">
             {% if p.imagen %}
-            <img src="{{ p.imagen.url}}" alt="imagen producto">
+            <img class="img-fluid" src="{{ p.imagen.url}}" alt="imagen producto">
             {% endif %}
             <div class="detalle">
                 <h5>{{p.marca | capfirst}}</h5>
@@ -54,6 +44,20 @@
     </div>
     {% endfor %}
 
+</div>
+
+<br><br>
+
+<div class="slider">
+    <div>
+        <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
+    </div>
 </div>
 
 {% endblock %}
