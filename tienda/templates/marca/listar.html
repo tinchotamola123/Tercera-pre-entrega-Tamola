@@ -3,7 +3,7 @@
 
 {% block js %}
     <script>
-        function eliminarProducto(id){
+        function eliminarMarca(id){
             Swal.fire({
                 "title": "¿Estas seguro?",
                 "text" : "No podras deshacer",
@@ -16,7 +16,7 @@
             })
             .then(function(result){
                 if(result.isConfirmed){
-                    window.location.href = "/eliminar-producto/" + id + "/"
+                    window.location.href = "/eliminar-marca/" + id + "/"
                 }
             })
         }
@@ -29,33 +29,21 @@
 {% load humanize %}
 <div class="card mt-4">
     <div class="card-body">
-        <h2 class="mb-3">Listado de productos</h2>
+        <h2 class="mb-3">Listado de Marcas</h2>
         <hr>
         <table class="text-center table table-striped table-hover table-responsive-sm">
             <tr>
                 <th>Nombre</th>
-                <th>Precio</th>
-                <th>Marca</th>
-                <th>¿Es Nuevo ?</th>
                 <th>Opciones</th>
             </tr>
         
         
-            {% for p in productos %}
+            {% for m in marcas %}
             <tr>
-                <td>{{ p.nombre | title }}</td>
-                <td>{{ p.precio | intcomma }} <b>USD</b> </td>
-                <td>{{ p.marca | title }}</td>
+                <td>{{ m.nombre | title }}</td>
                 <td>
-                    {% if p.nuevo %}
-                    Si
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-                <td>
-                    <a class="btn btn-info btn-sm" href="{% url 'modificar_productos' p.id %}">Editar</a>
-                    <a class="btn btn-danger btn-sm" href="#" onclick="eliminarProducto({{p.id}})">Eliminar</a>
+                    <a class="btn btn-info btn-sm" href="{% url 'modificar_marca' m.id %}">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="#" onclick="eliminarMarca({{m.id}})">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
@@ -71,4 +59,5 @@
         </a>
     </button>
 </div>
+
 {% endblock %}

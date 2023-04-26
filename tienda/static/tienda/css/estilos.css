@@ -46,18 +46,21 @@ nav {
     display: flex;
     justify-content: flex-end;/*flex-start - center - flex-end*/ /*horizontal*/
     align-items: center;
-    height: 100%;
+
 }
 
 nav > ul {
-    margin-right: 50px;
+    display: flex;
 }
 
 nav > ul > li {
     display: inline;
     margin-left: 10px;
 }
-
+dl, ol, ul {
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
 nav a {
     color: #ffffff;
     text-decoration: none;
@@ -78,9 +81,40 @@ nav a {
 .bx-wrapper {
     margin-top: 20px;
 }
-
+.barratareas{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px 10px 10px 10px;
+    background: #000000;
+    border-top: solid 1px rgb(49, 49, 49);
+    color: white;
+}
+.barratareas>li{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    list-style: none;
+}
+.barratareas>li>a{
+    text-decoration: none;
+    color: white;
+}
 
 /*CONTENIDO PRINCIPAL*/
+
+.botonCancelar{
+    text-decoration: none;
+    color: white;
+}
+.irinicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
 
 #contenido {
     width: 80%;

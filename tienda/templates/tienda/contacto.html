@@ -19,7 +19,10 @@
                     <br>
                     <hr>
                     <div class="d-flex justify-content-end">
-                    <input class="btn btn-secondary" type="reset" value="Cancelar">
+                        <button  type="reset" value="Cancelar" class="btn btn-secondary">
+                            <a class="botonCancelar" href="{% url 'home' %}">
+                                Cancelar
+                            </a></button>
                     &nbsp;
                     <button class="btn btn-primary" type="submit" id="btnEnviar" class="button">Enviar</button>
                     </div>
@@ -31,10 +34,12 @@
     </div>
 </div>
 
-
-<table id="tablacontactos">
-    
-</table>
-
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
 {% endblock %}
     

@@ -32,8 +32,6 @@
             </a>
         </div>
 
-        <div>
-
             <nav id="nav">
                 <ul>
                     <li>
@@ -45,28 +43,29 @@
                     <li>
                         <a href="{% url 'galeria' %}">Galería</a>
                     </li>
-                    <li>
-                        <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'agregar_marca' %}">Agregar Marca</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'listar_productos' %}">Listado Productos</a>
-                    </li>
                 </ul>
             </nav>
 
-        </div>
-
     </header>
+    <div class="barratareas">
+        <li>
+            <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
+        </li>
+        <li>
+            <a href="{% url 'agregar_marca' %}">Agregar Marca</a>
+        </li>
+        <li>
+            <a href="{% url 'listar_productos' %}">Listado Productos</a>
+        </li>
+        <li>
+            <a href="{% url 'listar_marcas' %}">Listado Marcas</a>
+        </li>
+    </div>
 
     <div id="contenido">
-
-
+        
         {% block contenido %}
         {% endblock %}
-
 
     </div>
 
@@ -88,6 +87,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script src="{% static 'tienda/js/menu.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Felicitaciones",
+                    "text" : "{{m}}",
+                    "icon" : "success"
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+    
 
     {% block js %}
 

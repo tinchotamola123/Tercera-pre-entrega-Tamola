@@ -23,5 +23,12 @@
     <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda4.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda4.jpg' %}"></a>
     <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda5.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda5.jpg' %}"></a>
 </div>
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
 
 {% endblock %}
