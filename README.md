@@ -2,11 +2,11 @@
 
 ## Para correrlo 
 * pip install -r requirements.txt
-* *django == 4.1.7
-   pillow
-   django-admin-interface
-   django-crispy-forms
-   crispy-bootstrap5  
+* django == 4.1.7
+* pillow
+* django-admin-interface
+* django-crispy-forms
+* crispy-bootstrap5  
 
 Hará las siguientes funciones:
 * Acciones CRUD con los productos y en las marcas
