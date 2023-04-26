@@ -1,11 +1,22 @@
 # Global Tech
 
+## Para correrlo 
+* pip install -r requirements.txt
+* *django == 4.1.7
+   pillow
+   django-admin-interface
+   django-crispy-forms
+   crispy-bootstrap5  
+
 Hará las siguientes funciones:
 * Acciones CRUD con los productos y en las marcas
 * Buscar productos en la pagina
 * Registrar productos y marcas a la base
 
 ![](/s1.jpeg)
+
+
+
 
 ## Partes
 1. Rutas
