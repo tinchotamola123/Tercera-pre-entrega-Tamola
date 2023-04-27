@@ -13,6 +13,7 @@ Hará las siguientes funciones:
 * Buscar productos en la pagina
 * Registrar productos y marcas a la base
 
+
 ![](/s1.jpeg)
 
 
