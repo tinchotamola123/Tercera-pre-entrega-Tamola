@@ -21,7 +21,17 @@
 
 {% block contenido %}
 
-
+<div class="slider">
+    <div>
+        <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
+    </div>
+    <div>
+        <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
+    </div>
+</div>
 
 
 {% load humanize %}
@@ -58,16 +68,6 @@
 
 <br><br>
 
-<div class="slider">
-    <div>
-        <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
-    </div>
-</div>
+
 
 {% endblock %}
