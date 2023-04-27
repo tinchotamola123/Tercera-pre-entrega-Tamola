@@ -87,7 +87,7 @@ nav a {
     justify-content: flex-end;
     padding: 10px 10px 10px 10px;
     background: #000000;
-    border-top: solid 1px rgb(49, 49, 49);
+    border-top: solid 2px #5d16ea;
     color: white;
 }
 .barratareas>li{
@@ -101,7 +101,17 @@ nav a {
     text-decoration: none;
     color: white;
 }
-
+.barrabusqueda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.colorboton{
+    background-color: #5d16ea;
+    color: white;
+}
 /*CONTENIDO PRINCIPAL*/
 
 .botonCancelar{
@@ -171,11 +181,13 @@ footer > .logo_footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90px;
+    height: 70px;
+    border-top: solid 2px #5d16ea;
 }
 
 footer > .logo_footer > img {
     width: 100px;
+    
 }
 
 .menu {

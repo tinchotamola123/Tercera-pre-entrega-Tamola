@@ -2,17 +2,22 @@ from django.shortcuts import render , redirect , get_object_or_404
 from .models import Prodcto , Marca
 from .forms import ContactoForm , ProductoForm ,MarcaForm
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 """"
-Vistas Home
+Vistas Home con buscador
 """
 def home(request):
-    productos = Prodcto.objects.all()
-    data = {
-        'productos' : productos
-    }
-    return render(request, 'tienda/home.html' , data)
+    if(request.GET.get('buscar')):
+        data = Prodcto.objects.filter(
+            Q(nombre__icontains = request.GET.get('buscar')) |
+            Q(descripcion__icontains = request.GET.get('buscar'))|
+            Q(marca__nombre__icontains = request.GET.get('buscar'))
+            ).distinct()
+    else:
+        data = Prodcto.objects.all()
+    return render(request, 'tienda/home.html', {'data': data})
 
 """"
 Vistas Contacto
@@ -96,6 +101,14 @@ def buscar_producto(request , producto):
     
     return render(request, 'producto/buscar.html', data)
 
+
+def buscar(request):
+    
+    data = Prodcto.objects.filter(
+        nombre__contains = request.GET.get('buscar','')
+        )
+    
+    return render(request, "producto/buscar.html",{'data':data})
 """"
 Vistas Marcas
 

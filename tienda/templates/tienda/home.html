@@ -26,19 +26,29 @@
 
 {% load humanize %}
 
-
 <h2 class="text-center text-white mt-5 mb-5">Productos</h2>
+<div class="barrabusqueda">
+    <form class="" action="" method="GET">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar" name="buscar" >
+            <button class="btn colorboton" type="submit" >Buscar</button>
+        </div>
+
+    </form>
+</div>
+
+
 <div class="productos">
-    {% for p in productos %}
+    {% for d in data %}
     <div class="producto card m-2">
         <div class="contenedor_producto card-body">
-            {% if p.imagen %}
-            <img class="img-fluid" src="{{ p.imagen.url}}" alt="imagen producto">
+            {% if d.imagen %}
+            <img class="img-fluid" src="{{ d.imagen.url}}" alt="imagen producto">
             {% endif %}
             <div class="detalle">
-                <h5>{{p.marca | capfirst}}</h5>
-                <h2>{{p.nombre | title}}</h2>
-                <h3>${{p.precio | intcomma}}</h3>
+                <h5>{{d.marca | capfirst}}</h5>
+                <h2>{{d.nombre | title}}</h2>
+                <h3>${{d.precio | intcomma}}</h3>
             </div>
         </div>
     </div>
