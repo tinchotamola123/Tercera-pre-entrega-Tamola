@@ -13,4 +13,5 @@ urlpatterns = [
     path("listar-marcas/", views.listar_marcas, name='listar_marcas'),
     path("modificar-marca/<id>/", views.modificar_marca, name='modificar_marca'),
     path("eliminar-marca/<id>/", views.eliminar_marca, name='eliminar_marca'),
+    path("registro/", views.registro, name="registro")
 ]

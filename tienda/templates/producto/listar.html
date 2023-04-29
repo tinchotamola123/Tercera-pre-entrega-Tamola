@@ -54,15 +54,23 @@
                     {% endif %}
                 </td>
                 <td>
+                    {% if perms.tienda.change_prodcto %}
                     <a class="btn btn-info btn-sm" href="{% url 'modificar_productos' p.id %}">Editar</a>
+                    {% endif %}
+                    {% if perms.tienda.delete_prodcto %}
                     <a class="btn btn-danger btn-sm" href="#" onclick="eliminarProducto({{p.id}})">Eliminar</a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
         </table>
         <hr>
+        <div>
+            {% include 'producto/paginator.html' %}
+        </div>
     </div>
 </div>
+
 
 <div class="irinicio">
     <button  type="reset" value="Inicio" class="btn btn-secondary">

@@ -1,8 +1,12 @@
 from django.shortcuts import render , redirect , get_object_or_404
 from .models import Prodcto , Marca
-from .forms import ContactoForm , ProductoForm ,MarcaForm
+from .forms import ContactoForm , ProductoForm ,MarcaForm , CustomUserCreationForm
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator
+from django.http import Http404
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required , permission_required
 
 # Create your views here.
 """"
@@ -42,10 +46,34 @@ def galeria(request):
     return render(request, 'tienda/galeria.html')
 
 """"
-Vistas Productos
+Registro
 
 """
 
+def registro(request):
+    data = {
+        'form' : CustomUserCreationForm
+    }
+    
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
+            login(request, user)
+            messages.success(request, 'Te has Registrado Correctamente')
+            #redirigir al home
+            return redirect(to='home')
+        data['form'] = formulario
+            
+    return render(request, 'registration/registro.html', data)
+
+
+""""
+Vistas Productos
+
+"""
+@permission_required('tienda.add_prodcto')
 def agregar_producto(request):
     data = {
         'form' : ProductoForm()
@@ -60,15 +88,26 @@ def agregar_producto(request):
             data['form'] = formulario
     return render(request, 'producto/agregar.html', data)
 
+@permission_required('tienda.view_prodcto')
 def listar_productos(request):
     productos = Prodcto.objects.all()
+    page = request.GET.get('page',1)
+    
+    try:
+        paginator = Paginator(productos, 4)
+        productos = paginator.page(page)
+    except:
+        raise Http404
+    
+    
     data = {
-        'productos' : productos
+        'productos' : productos,
+        'paginator' : paginator
     }
     
     return render(request, 'producto/listar.html', data)
 
-
+@permission_required('tienda.change_prodcto')
 def modificar_producto(request, id):
     
     producto = get_object_or_404(Prodcto, id=id)
@@ -87,33 +126,19 @@ def modificar_producto(request, id):
         
     return render(request, 'producto/modificar.html', data)
 
+@permission_required('tienda.delete_prodcto')
 def eliminar_producto(request, id):
     producto = get_object_or_404(Prodcto, id=id)
     producto.delete()
     messages.success(request, "Eliminado Correcatmente")
     return redirect(to="listar_productos")
 
-def buscar_producto(request , producto):
-    productos = Prodcto.objects.filter(producto=producto).values()
-    data = {
-        'productos' : productos
-    }
-    
-    return render(request, 'producto/buscar.html', data)
 
-
-def buscar(request):
-    
-    data = Prodcto.objects.filter(
-        nombre__contains = request.GET.get('buscar','')
-        )
-    
-    return render(request, "producto/buscar.html",{'data':data})
 """"
 Vistas Marcas
 
 """
-
+@permission_required('tienda.add_marca')
 def agregar_marca(request):
     data = {
         'form' : MarcaForm()
@@ -128,15 +153,26 @@ def agregar_marca(request):
             data['form'] = formulario
     return render(request, 'marca/agregar.html', data)
 
-    
+@permission_required('tienda.view_marca')
 def listar_marcas(request):
     marcas = Marca.objects.all()
+    page = request.GET.get('page',1)
+    
+    try:
+        paginator = Paginator(marcas, 4)
+        marcas = paginator.page(page)
+    except:
+        raise Http404
+    
+    
     data = {
-        'marcas' : marcas
+        'marcas' : marcas,
+        'paginator' : paginator
     }
     
     return render(request, 'marca/listar.html', data)
 
+@permission_required('tienda.change_prodcto')
 def modificar_marca(request, id):
     
     marca = get_object_or_404(Marca, id=id)
@@ -155,6 +191,7 @@ def modificar_marca(request, id):
         
     return render(request, 'marca/modificar.html', data)
 
+@permission_required('tienda.delete_prodcto')
 def eliminar_marca(request, id):
     marca = get_object_or_404(Marca, id=id)
     marca.delete()

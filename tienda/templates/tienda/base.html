@@ -43,24 +43,53 @@
                     <li>
                         <a href="{% url 'galeria' %}">Galería</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </li>
+                        {% load static %}
+                            
+                        <li class="liusuario">
+                            <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
+                            <a class="nombreusuario href="#"><b>{{ user.username }}</b></a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'registro' %}">Registrarte</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
 
     </header>
+
+    {% if user.is_authenticated %}
     <div class="barratareas">
+        {% if perms.tienda.add_prodcto %}
         <li>
             <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
         </li>
+        {% endif %}
+        {% if perms.tienda.add_marca %}
         <li>
             <a href="{% url 'agregar_marca' %}">Agregar Marca</a>
         </li>
+        {% endif %}
+        {% if perms.tienda.view_prodcto %}
         <li>
             <a href="{% url 'listar_productos' %}">Listado Productos</a>
         </li>
+        {% endif %}
+        {% if perms.tienda.view_marca %}
         <li>
             <a href="{% url 'listar_marcas' %}">Listado Marcas</a>
         </li>
+        {% endif %}
     </div>
+    {% endif %}
 
     <div id="contenido">
         

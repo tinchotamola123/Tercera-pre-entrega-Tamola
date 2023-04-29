@@ -112,6 +112,17 @@ nav a {
     background-color: #5d16ea;
     color: white;
 }
+.nombreusuario{
+    color: #5d16ea;
+    text-decoration: double;
+}
+.btnlogin{
+    display: flex;
+    justify-content: space-between;
+}
+.liusuario{
+    margin-left: 20px;
+}
 /*CONTENIDO PRINCIPAL*/
 
 .botonCancelar{
