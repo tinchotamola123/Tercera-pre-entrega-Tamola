@@ -88,6 +88,11 @@
             <a href="{% url 'listar_marcas' %}">Listado Marcas</a>
         </li>
         {% endif %}
+        {% if perms.tienda.view_contacto %}
+        <li>
+            <a href="{% url 'listar_contactos' %}">Listado Mensajes</a>
+        </li>
+        {% endif %}
     </div>
     {% endif %}
 

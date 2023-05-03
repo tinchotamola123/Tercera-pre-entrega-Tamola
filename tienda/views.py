@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect , get_object_or_404
-from .models import Prodcto , Marca
+from .models import Prodcto , Marca ,Contacto
 from .forms import ContactoForm , ProductoForm ,MarcaForm , CustomUserCreationForm
 from django.contrib import messages
 from django.db.models import Q
@@ -36,11 +36,35 @@ def contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Contacto Enviado a la base"
+            messages.success(request, 'Mensaje Guardado Correctamente')
         else:
             data['form'] = formulario
         
     return render(request, 'tienda/contacto.html' , data)
+
+@permission_required('tienda.view_contacto')
+def listar_contactos(request):
+    mensajes = Contacto.objects.all()
+    page = request.GET.get('page',1)
+    
+    try:
+        paginator = Paginator(mensajes, 4)
+        mensajes = paginator.page(page)
+    except:
+        raise Http404
+    
+    
+    data = {
+        'mensajes' : mensajes,
+        'paginator' : paginator
+    }
+    
+    return render(request, 'contacto/listar.html', data)
+
+""""
+Galeria
+
+"""
 
 def galeria(request):
     return render(request, 'tienda/galeria.html')
@@ -133,6 +157,10 @@ def eliminar_producto(request, id):
     messages.success(request, "Eliminado Correcatmente")
     return redirect(to="listar_productos")
 
+def detalle_producto(request, id):
+    producto = get_object_or_404(Prodcto, id=id)
+    print(producto.precio)
+    return render(request, 'producto/detalle.html', {'producto': producto})
 
 """"
 Vistas Marcas
@@ -197,3 +225,10 @@ def eliminar_marca(request, id):
     marca.delete()
     messages.success(request, "Eliminado Correcatmente")
     return redirect(to="listar_marcas")
+
+
+""""
+Vistas Marcas
+
+"""
+

@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #484848;
+    background-color: #371f58;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -153,6 +153,10 @@ nav a {
 .producto {
     width: 25%;
     margin-top: 20px;
+}
+.producto:hover{
+transform:scale(1.1);
+z-index: 5;
 }
 
 .producto .detalle {

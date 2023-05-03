@@ -24,8 +24,11 @@
                             {% csrf_token %}
                             {{ form | crispy }}
                             <div class="btnlogin">
-                                <a href="{% url 'home' %}">Ir al Home</a>|
-                                <a href="{% url 'registro' %}">Ir al Registro</a>
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                    <a style="padding-right: 5px;" href="{% url 'home' %}">Ir al Home</a>|
+                                    <a style="padding-left: 5px;" href="{% url 'registro' %}">Ir al Registro</a>
+                                </div>
+                                
                             <input class="btn btn-success btnpos" type="submit" value="Ingresar">
                             </div>
                         </form>

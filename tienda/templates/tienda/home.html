@@ -50,6 +50,7 @@
 
 <div class="productos">
     {% for d in data %}
+    
     <div class="producto card m-2">
         <div class="contenedor_producto card-body">
             {% if d.imagen %}
@@ -58,7 +59,10 @@
             <div class="detalle">
                 <h5>{{d.marca | capfirst}}</h5>
                 <h2>{{d.nombre | title}}</h2>
-                <h3>${{d.precio | intcomma}}</h3>
+                <h3>{{d.precio | intcomma}} USD</h3>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <a class="btn colorboton" href="{% url 'detalle_producto' d.id %}">Detalle</a>
             </div>
         </div>
     </div>

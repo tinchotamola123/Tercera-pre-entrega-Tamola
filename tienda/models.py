@@ -36,5 +36,6 @@ class Contacto(models.Model):
     avisos = models.BooleanField()
     
     def __str__(self):
-        return self.nombre
+        cadena= self.nombre+","+self.tipo_consulta
+        return cadena
 
