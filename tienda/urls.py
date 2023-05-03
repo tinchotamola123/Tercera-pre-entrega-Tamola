@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path , include
 from tienda import views
 
 urlpatterns = [
@@ -16,5 +16,5 @@ urlpatterns = [
     path("modificar-marca/<id>/", views.modificar_marca, name='modificar_marca'),
     path("eliminar-marca/<id>/", views.eliminar_marca, name='eliminar_marca'),
     path("registro/", views.registro, name="registro"),
-    
+    path("carrito/", include('carrito.urls')),
 ]

@@ -227,8 +227,3 @@ def eliminar_marca(request, id):
     return redirect(to="listar_marcas")
 
 
-""""
-Vistas Marcas
-
-"""
-
