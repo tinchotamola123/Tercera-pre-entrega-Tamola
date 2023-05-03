@@ -14,7 +14,7 @@ Hará las siguientes funciones:
 * Registrar productos y marcas a la base
 
 
-![](/s2.jpeg)
+![](/s1.jpeg)
 
 
 ## Partes
