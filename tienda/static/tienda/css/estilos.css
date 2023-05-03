@@ -124,15 +124,25 @@ nav a {
 .liusuario{
     margin-left: 20px;
 }
+.carritonav{
+    display: flex;
+    justify-content: end;
+}
 .tablacarrito{
+    margin-top: 5px;
     background-color: rgb(255, 255, 255);
-    border: 3px solid black;
-    margin-top: 45px;
+    margin-bottom: 0px;
+    border: 2px solid black;
+    right: 200px;
 }
 .botonescarrito{
     display: flex;
-    justify-content: flex-end;
-    
+    justify-content: end;
+    margin-bottom: 5px;
+}
+.botonescarrito>a{
+    width: 100%;
+    margin-top: 4px;
 }
 /*CONTENIDO PRINCIPAL*/
 
@@ -347,4 +357,30 @@ textarea {
         padding:20px 0;
     }
 
+    .carritonav{
+        display: block;
+        justify-content: center;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .tablacarrito{
+        margin-top: 5px;
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 0px;
+    }
+    .botonescarrito{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .botonescarrito>a{
+        width: 100%;
+    }
+    .bx-wrapper{
+        display: none;
+    }
+    .col-4{
+        flex: 0 0 auto;
+        width: 100%;
+    }
 }

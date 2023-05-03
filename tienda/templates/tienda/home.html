@@ -9,7 +9,7 @@
         $('.slider').bxSlider({
             mode: 'fade',//horizontal, vertical, fade
             auto: true,
-            pause: 2000
+            pause: 1000
         });
     });
 </script>
@@ -21,32 +21,37 @@
 
 {% block contenido %}
 
-<div class="slider">
-    <div>
-        <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
+<h1 class="text-center text-white mt-5 mb-5">Global Tech</h1>
+
+<div class="row">
+    <div class="col-8">
+        <div class="slider">
+            <div>
+                <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
+            </div>
+            <div>
+                <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
+            </div>
+            <div>
+                <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
+            </div>
+        </div>
     </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
+    <div class="col-4">
+        <div class="carritonav">
+            {% include 'carrito.html' %}
+        </div>
     </div>
 </div>
 
 
 
 
-
 {% load humanize %}
 
-<h2 class="text-center text-white mt-5 mb-5">Global Tech</h2>
 
-    <div class="col-12 mt-5 mb-5">
-        <div>
-            {% include 'carrito.html' %}
-        </div>
-    </div>
-
+    
+    
     <div class="col-12">
         <div class="barrabusqueda mt-5 mb-5">
             <form class="" action="" method="GET">
