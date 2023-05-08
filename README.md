@@ -12,6 +12,7 @@ Hará las siguientes funciones:
 * Acciones CRUD con los productos y en las marcas
 * Buscar productos en la pagina
 * Registrar productos y marcas a la base
+* Carrito de compras con contexto global 
 
 
 ![](/s1.jpeg)
