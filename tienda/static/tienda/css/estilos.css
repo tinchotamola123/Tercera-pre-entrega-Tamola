@@ -144,6 +144,16 @@ nav a {
     width: 100%;
     margin-top: 4px;
 }
+.form-text {
+    display: none;
+}
+.navcelu{
+    display: flex;
+    align-items: center;
+}
+.usuariocelu{
+    display: none;
+}
 /*CONTENIDO PRINCIPAL*/
 
 .botonCancelar{
@@ -267,6 +277,10 @@ textarea {
 /*MEDIA QUERIES*/
 
 
+
+
+
+
 /*Tablets*/
 @media (max-width: 1024px) {
     .galeria {
@@ -282,7 +296,7 @@ textarea {
 }
 
 /*Smartphone*/
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 
     .galeria {
         grid-template-columns: 1fr;
@@ -314,6 +328,7 @@ textarea {
     }
     .cartcelu{
         font-size: 15px;
+        display: flex;
     }
     .producto {
         width: 100%;
@@ -382,5 +397,12 @@ textarea {
     .col-4{
         flex: 0 0 auto;
         width: 100%;
+    }
+    .usuariocelu{
+        display: block;
+        
+    }
+    .liusuario{
+        display: none;
     }
 }

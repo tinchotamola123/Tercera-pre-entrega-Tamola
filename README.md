@@ -9,9 +9,10 @@
 * crispy-bootstrap5  
 
 Hará las siguientes funciones:
-* Acciones CRUD con los productos y en las marcas
-* Buscar productos en la pagina
-* Registrar productos y marcas a la base
+* Acciones CRUD con los productos y en las marcas.
+* Buscar productos en la pagina.
+* Registrar productos y marcas a la base.
+* Carrito de compra de los productos
 
 
 ![](/s1.jpeg)

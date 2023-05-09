@@ -52,8 +52,16 @@ class MarcaForm(forms.ModelForm):
         fields = '__all__'
         
 class CustomUserCreationForm(UserCreationForm):
-    
     class Meta:
         model = User
         fields = ["username","first_name","last_name","email","password1","password2"]
         exclude = ()
+        # Saca los mensajes de ayuda
+        help_texts = {
+            'username': None,
+            'first_name': None,
+            'last_name': None,
+            'email': None,
+            'password1' : None,
+            'password2' : None
+        }

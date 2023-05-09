@@ -28,7 +28,16 @@
         <img class="menu" src="{% static 'tienda/img/menuiconwhite.png' %}" alt="menu" id="menu">
         <div class="contenedor_logo">
             <a href="{% url 'home' %}">
-                <img class="logo" src="{% static 'tienda/img/globaltech.png' %}" alt="logo">
+                <div class="navcelu">
+                    <img class="logo" src="{% static 'tienda/img/globaltech.png' %}" alt="logo">
+                    {% if user.is_authenticated %}
+                    <div class="usuariocelu">
+                        <a class="nombreusuario href="#"><b>{{ user.username }}</b></a>
+                        <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
+                                
+                    </div>
+                    {% endif %}
+                </div>
             </a>
         </div>
 
@@ -50,9 +59,17 @@
                         {% load static %}
                             
                         <li class="liusuario">
-                            <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
                             <a class="nombreusuario href="#"><b>{{ user.username }}</b></a>
+                            <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
                         </li>
+                        {% comment %}
+                        {% if request.user.profile.avatar %}
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{request.user.profile.avatar.url}}" alt="user" class="rounded-circle" width="31"></a>
+                        {% else %}
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'Avatar2.png' %}" alt="user" class="rounded-circle" width="31"></a>
+                        {% endif %}
+                        {% endcomment %}
+                        
                     {% else %}
                         <li>
                             <a href="{% url 'login' %}">Iniciar Sesión</a>
@@ -99,7 +116,7 @@
     
 
     <div id="contenido">
-        
+        <h1 class="text-center text-white mt-5 mb-5">Global Tech</h1>
         {% block contenido %}
         {% endblock %}
 
