@@ -18,7 +18,11 @@ class ContactoAdmin(admin.ModelAdmin):
     list_filter = ['nombre','tipo_consulta']
     list_per_page = 5
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user' , 'avatar']
+    
 
 admin.site.register(models.Marca)
 admin.site.register(models.Prodcto,ProdctoAdmin)
 admin.site.register(models.Contacto,ContactoAdmin)
+admin.site.register(models.Profile,ProfileAdmin)

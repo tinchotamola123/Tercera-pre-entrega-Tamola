@@ -33,8 +33,11 @@
                     {% if user.is_authenticated %}
                     <div class="usuariocelu">
                         <a class="nombreusuario href="#"><b>{{ user.username }}</b></a>
-                        <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
-                                
+                        {% if request.user.profile.avatar %}
+                            <img src="{{request.user.profile.avatar.url}}" alt="user" width="30" height="30">
+                        {% else %}
+                            <img src="{% static 'registration/img/no-avatar.png' %}" alt="user" width="30" height="30">
+                        {% endif %}
                     </div>
                     {% endif %}
                 </div>
@@ -56,20 +59,20 @@
                         <li>
                             <a href="{% url 'logout' %}">Cerrar Sesión</a>
                         </li>
+                        <li>
+                            <a href="{% url 'profile' %}">Perfil</a>
+                        </li>
                         {% load static %}
                             
                         <li class="liusuario">
                             <a class="nombreusuario href="#"><b>{{ user.username }}</b></a>
-                            <img src="{% static 'tienda/img/user/user.png' %}" alt="user" width="20" height="20" class="">
+                            {% if request.user.profile.avatar %}
+                                <img src="{{request.user.profile.avatar.url}}" alt="user" width="30" height="30">
+                            {% else %}
+                                <img src="{% static 'registration/img/no-avatar.png' %}" alt="user" width="30" height="30">
+                            {% endif %}
                         </li>
-                        {% comment %}
-                        {% if request.user.profile.avatar %}
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{request.user.profile.avatar.url}}" alt="user" class="rounded-circle" width="31"></a>
-                        {% else %}
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'Avatar2.png' %}" alt="user" class="rounded-circle" width="31"></a>
-                        {% endif %}
-                        {% endcomment %}
-                        
+                    
                     {% else %}
                         <li>
                             <a href="{% url 'login' %}">Iniciar Sesión</a>

@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect , get_object_or_404
-from .models import Prodcto , Marca ,Contacto
-from .forms import ContactoForm , ProductoForm ,MarcaForm , CustomUserCreationForm
+from django.urls import reverse_lazy
+from .models import Prodcto , Marca ,Contacto ,Profile
+from .forms import ContactoForm , ProductoForm ,MarcaForm , CustomUserCreationForm , ProfileForm , User
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -159,7 +160,7 @@ def eliminar_producto(request, id):
 
 def detalle_producto(request, id):
     producto = get_object_or_404(Prodcto, id=id)
-    print(producto.precio)
+    #print(producto.precio)
     return render(request, 'producto/detalle.html', {'producto': producto})
 
 """"
@@ -227,3 +228,24 @@ def eliminar_marca(request, id):
     return redirect(to="listar_marcas")
 
 
+""""
+Vistas Perfil
+
+"""
+
+from django.views.generic.edit import UpdateView
+from django.utils.decorators import method_decorator
+
+@method_decorator(login_required, name='dispatch')
+class ProfileUpdate(UpdateView):
+    form_class = ProfileForm
+    success_url = reverse_lazy('profile')
+    
+    def get_object(self):
+        try:
+            return Profile.objects.get(user=self.request.user)
+        except Profile.DoesNotExist:
+            return Profile.objects.create(user=self.request.user)
+    
+    
+    

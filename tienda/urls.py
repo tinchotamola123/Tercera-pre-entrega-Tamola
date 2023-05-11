@@ -1,5 +1,6 @@
 from django.urls import path , include
 from tienda import views
+from tienda.views import ProfileUpdate
 
 urlpatterns = [
     path("", views.home, name='home'),
@@ -17,4 +18,5 @@ urlpatterns = [
     path("eliminar-marca/<id>/", views.eliminar_marca, name='eliminar_marca'),
     path("registro/", views.registro, name="registro"),
     path("carrito/", include('carrito.urls')),
+    path("accounts/profile/", ProfileUpdate.as_view(), name='profile'),
 ]
