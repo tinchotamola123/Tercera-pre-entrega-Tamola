@@ -1,7 +1,9 @@
 # Global Tech
 
-## Deploy 
+## Video Explicativo 
+https://youtu.be/u9woRLqtL54
 
+## Deploy 
 https://tinchotamola.pythonanywhere.com/
 
 ## Para correrlo 
