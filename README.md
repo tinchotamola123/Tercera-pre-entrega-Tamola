@@ -1,5 +1,9 @@
 # Global Tech
 
+## Deploy 
+
+https://tinchotamola.pythonanywhere.com/
+
 ## Para correrlo 
 * pip install -r requirements.txt
 * django == 4.1.7
@@ -14,7 +18,7 @@ Hará las siguientes funciones:
 * Registrar productos y marcas a la base
 * Carrito de compras con contexto global
 
-![](/s1.jpeg)
+![](/s2.jpeg)
 
 
 ## Partes
@@ -38,17 +42,23 @@ Hará las siguientes funciones:
       2. home
       3. galeria
       4. contacto
+      5. Sobre mi
    2. Producto
       1. agregar
       2. listar
       3. modificar
+      4. eliminar
    2. Marca
       1. agregar
-
+      2. listar
+      3. modificar
+      4. eliminar
+      
 3. Modelos
    1. Marca
    2. Producto
    3. Contacto
+   4. Perfil
 
 4. Vistas
    1. Tienda
@@ -100,3 +110,5 @@ Hará las siguientes funciones:
         1.  Creo forms.py
         2.  Defino el formulario
     5. Sigo creando las vistas
+
+16. Hago lo mismo para los otros modelos.

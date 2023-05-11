@@ -248,4 +248,10 @@ class ProfileUpdate(UpdateView):
             return Profile.objects.create(user=self.request.user)
     
     
-    
+""""
+Vistas Sobre mi
+
+"""
+
+def sobremi(request):
+    return render(request, 'tienda/sobremi.html')

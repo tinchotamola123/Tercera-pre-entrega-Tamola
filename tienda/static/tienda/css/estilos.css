@@ -405,4 +405,18 @@ textarea {
     .liusuario{
         display: none;
     }
+    .row>* {
+        padding-left: 0; 
+    }
+    .perfil{
+        padding-top: 25px;
+    }
+    .fotoperfil{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .fotoperfil>h2{
+        padding-top: 25px;
+    }
 }

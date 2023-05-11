@@ -55,6 +55,9 @@
                     <li>
                         <a href="{% url 'galeria' %}">Galería</a>
                     </li>
+                    <li>
+                        <a href="{% url 'sobremi' %}">Sobre Mi</a>
+                    </li>
                     {% if user.is_authenticated %}
                         <li>
                             <a href="{% url 'logout' %}">Cerrar Sesión</a>

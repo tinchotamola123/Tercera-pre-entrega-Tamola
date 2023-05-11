@@ -38,7 +38,7 @@
                 <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
                     <div class="row">
                         <!-- Previa del avatar -->
-                        <div class="col-md-2">
+                        <div class="col-md-2  fotoperfil">
                             {% if request.user.profile.avatar %}
                             <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
                             {% else %}
@@ -47,7 +47,7 @@
                         </div>
                         <!-- Formulario -->
                         <div class="col-md-10">
-                            <h3>Perfil</h3>
+                            <h3 class="perfil">Perfil</h3>
                             <input type="file" name="avatar" class="form-control-file mt-3" id="id_avatar">
                             {{ form.bio }}
                             {{ form.link }}
