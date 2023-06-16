@@ -13,8 +13,10 @@ https://tinchotamola.pythonanywhere.com/
 * django-admin-interface
 * django-crispy-forms
 * crispy-bootstrap5  
+* djangorestframework==3.14.0 
 
 Hará las siguientes funciones:
+* Tiene una Api creada con RestFramework /api/
 * Acciones CRUD con los productos y en las marcas
 * Buscar productos en la pagina
 * Registrar productos y marcas a la base
